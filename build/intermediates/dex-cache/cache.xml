@@ -2,32 +2,39 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\User\AndroidStudioProjects\JustJava\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jar="C:\Users\Dagger\AndroidStudioProjects\JustJava2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="C:\Users\User\AndroidStudioProjects\JustJava\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-3b91f5e694a3ac34869f891b7049574746052ce8.jar" />
+        <dex dex="C:\Users\Dagger\AndroidStudioProjects\JustJava2\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-dab343a15bd8337ad696641ae3a4f271b12c2c78.jar" />
     </item>
     <item
-        jar="C:\Users\User\AndroidStudioProjects\JustJava\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jar="C:\Users\Dagger\AndroidStudioProjects\JustJava2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="C:\Users\User\AndroidStudioProjects\JustJava\app\build\intermediates\pre-dexed\debug\classes-e08de0c48b340c04a02d3cae2ca891bbfb335bb0.jar" />
+        <dex dex="C:\Users\Dagger\AndroidStudioProjects\JustJava2\app\build\intermediates\pre-dexed\debug\classes-672e32be81f2d43b9bfbfb313f930a7d958a50d6.jar" />
     </item>
     <item
-        jar="C:\Users\User\AndroidStudioProjects\JustJava\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jar="C:\Users\Dagger\AndroidStudioProjects\JustJava2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="C:\Users\User\AndroidStudioProjects\JustJava\app\build\intermediates\pre-dexed\debug\classes-cd480aea41c6638df5fbbf3f97e59a16354e4ab6.jar" />
+        <dex dex="C:\Users\Dagger\AndroidStudioProjects\JustJava2\app\build\intermediates\pre-dexed\debug\classes-3470ff0295643aaa432155aad33741cd45e1146a.jar" />
     </item>
     <item
-        jar="C:\Users\User\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jar="C:\Users\Dagger\AndroidStudioProjects\JustJava2\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="C:\Users\Dagger\AndroidStudioProjects\JustJava2\app\build\intermediates\pre-dexed\debug\classes-a6b4c34edbeda281ee8d696e82fcbaad36434b73.jar" />
+    </item>
+    <item
+        jar="C:\Users\Dagger\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="C:\Users\User\AndroidStudioProjects\JustJava\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-d549de19b12dc583c9c92b246b485ac9c23198e7.jar" />
+        <dex dex="C:\Users\Dagger\AndroidStudioProjects\JustJava2\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-b5c3762b6eeeda1a3d9c36a9415d6bff1063a509.jar" />
     </item>
 
 </items>
