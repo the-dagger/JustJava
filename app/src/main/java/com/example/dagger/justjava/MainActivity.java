@@ -7,19 +7,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     int noc = 0;
-
+    int price = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submit(View view) {
-            displaySummary("Name : Harshit \n" + "Quantity : " + noc + "\nTotal Price : $" + calcPrice(10) + "\nThank You!");
+
+        displaySummary("Name : Harshit \n" + "Quantity : " + noc + "\nTotal Price : $" + calcPrice(price) + "\nWhipped Cream : " + cream(view) + "\nThank You!");
     }
 
     public int calcPrice(int Price) {
@@ -43,8 +44,20 @@ public class MainActivity extends AppCompatActivity {
         display(noc);
     }
 
+    public String cream(View view){
+        Boolean checkClick = ((CheckBox) findViewById(R.id.whippedCream)).isChecked();
+        if(checkClick)
+        price = 15;
+        else
+        price = 10;
+        return("Yes");
+    }
+
     public void minus(View view) {
-        noc--;
+        if (noc > 0)
+            noc--;
+        else
+            noc = 0;
         display(noc);
     }
 
@@ -53,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         numberOfCoffee.setText("" + var);
     }
 
-    public void displaySummary(String var){
+    public void displaySummary(String var) {
         TextView summary = (TextView) findViewById(R.id.orderSummary);
         summary.setText(var);
     }
