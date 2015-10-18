@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     int noc = 0;
     int price = 10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +45,15 @@ public class MainActivity extends AppCompatActivity {
         display(noc);
     }
 
-    public String cream(View view){
-        Boolean checkClick = ((CheckBox) findViewById(R.id.whippedCream)).isChecked();
-        if(checkClick)
-        price = 15;
-        else
-        price = 10;
-        return("Yes");
+    public String cream(View view) {
+        CheckBox checkClick = (CheckBox) findViewById(R.id.whippedCream);
+        if (checkClick.isChecked()) {
+            price = 15;
+            return ("Yes");
+        } else {
+            price = 10;
+            return ("No");
+        }
     }
 
     public void minus(View view) {

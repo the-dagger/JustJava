@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,12 +14,23 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toppings"
+        android:textColor="#000000"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop = "8dp"
+        android:paddingBottom="16dp"
+        android:textSize="16sp"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Whipped Cream?"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        android:paddingLeft="16dp"
         android:textColor="#000000"
         android:id="@+id/whippedCream"
         android:onClick="cream"/>
@@ -29,7 +42,7 @@
         android:padding="8dp"
         android:textColor="#000000"
         android:id="@+id/quantity"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -54,7 +67,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:text="0"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/plus"
@@ -73,11 +86,13 @@
         android:text="Summary"
         android:padding="8dp"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/orderSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:padding="8dp"
+        android:textSize="16sp" />
 </LinearLayout>
+</ScrollView>
