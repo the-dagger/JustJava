@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Boolean hasCream = cream.isChecked();
         EditText name = (EditText) findViewById(R.id.name);
         String strname = name.getText().toString();
-        displaySummary("Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(hasCream,hasChocolate) + "\nWhipped Cream : " + hasCream + "\nChocolate Topping : " + hasChocolate + "\nThank You!");
+        displaySummary("Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(hasCream, hasChocolate) + "\nWhipped Cream : " + hasCream + "\nChocolate Topping : " + hasChocolate + "\nThank You!");
     }
 
     public int calcPrice(boolean hasCream, boolean hasChocolate) {
@@ -68,10 +69,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void minus(View view) {
-        if (noc > 0)
+        if (noc > 1)
             noc--;
-        else
-            noc = 0;
+        else {
+            Toast.makeText(MainActivity.this, "You can't order less than 1 coffee!", Toast.LENGTH_SHORT).show();
+            noc = 1;
+        }
         display(noc);
     }
 
