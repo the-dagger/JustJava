@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
+    android:layout_marginTop="?android:attr/actionBarSize"
     android:layout_width="match_parent">
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,6 +15,15 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
+    <EditText
+        android:layout_width="match_parent"
+        android:maxLines="1"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:id="@+id/name"
+        android:layout_marginBottom="16dp"
+        android:textSize="16sp"
+        android:inputType="textPersonName"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,18 +32,27 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:paddingTop = "8dp"
-        android:paddingBottom="16dp"
+        android:layout_marginBottom="16dp"
         android:textSize="16sp"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Whipped Cream?"
+        android:text="Whipped Cream"
         android:textSize="16sp"
         android:paddingLeft="16dp"
         android:textColor="#000000"
         android:id="@+id/whippedCream"
         android:onClick="cream"/>
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chocolate"
+        android:id="@+id/chocolate"
+        android:onClick="chocolate"
+        android:textSize="16sp"
+        android:paddingLeft="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"

@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,9 +31,27 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public String chocolate (View view){
+        CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate);
+        if (chocolate.isChecked()){
+            price += 5;
+            return("Yes");
+        }
+        else
+            return("No");
+    }
+
+//    public EditText getText()
+//    {
+//
+//        return((EditText)name.getText());
+//    }
+
     public void submit(View view) {
 
-        displaySummary("Name : Harshit \n" + "Quantity : " + noc + "\nTotal Price : $" + calcPrice(price) + "\nWhipped Cream : " + cream(view) + "\nThank You!");
+        EditText name = (EditText) findViewById(R.id.name);
+        String strname = name.getText().toString();
+        displaySummary("Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(price) + "\nWhipped Cream : " + cream(view) + "\nChocolate Topping : " + chocolate(view) + "\nThank You!");
     }
 
     public int calcPrice(int Price) {
