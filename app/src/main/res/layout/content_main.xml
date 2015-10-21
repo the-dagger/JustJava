@@ -85,7 +85,6 @@
             android:layout_marginBottom="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:text="0"
             android:textSize="16sp" />
 
         <Button
@@ -98,7 +97,6 @@
             android:onClick="plus"
             android:text="+" />
     </LinearLayout>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
