@@ -14,7 +14,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     int noc = 0;
-    int price = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,32 +30,30 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public String chocolate (View view){
-        CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate);
-        if (chocolate.isChecked()){
-            price += 5;
-            return("Yes");
-        }
-        else
-            return("No");
+    public Boolean chocolate(View view) {
+        CheckBox hasChocolate = (CheckBox) findViewById(R.id.chocolate);
+        return (hasChocolate.isChecked());
     }
-
-//    public EditText getText()
-//    {
-//
-//        return((EditText)name.getText());
-//    }
 
     public void submit(View view) {
-
+        CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate);
+        Boolean hasChocolate = chocolate.isChecked();
+        CheckBox cream = (CheckBox) findViewById(R.id.whippedCream);
+        Boolean hasCream = cream.isChecked();
         EditText name = (EditText) findViewById(R.id.name);
         String strname = name.getText().toString();
-        displaySummary("Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(price) + "\nWhipped Cream : " + cream(view) + "\nChocolate Topping : " + chocolate(view) + "\nThank You!");
+        displaySummary("Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(hasCream,hasChocolate) + "\nWhipped Cream : " + hasCream + "\nChocolate Topping : " + hasChocolate + "\nThank You!");
     }
 
-    public int calcPrice(int Price) {
-        int amount = Price * noc;
-        return amount;
+    public int calcPrice(boolean hasCream, boolean hasChocolate) {
+
+        int price = 5;
+        if (hasCream)
+            price += 1;
+        if (hasChocolate)
+            price += 2;
+
+        return price * noc;
     }
 
     public void plus(View view) {
@@ -64,15 +61,10 @@ public class MainActivity extends AppCompatActivity {
         display(noc);
     }
 
-    public String cream(View view) {
-        CheckBox checkClick = (CheckBox) findViewById(R.id.whippedCream);
-        if (checkClick.isChecked()) {
-            price = 15;
-            return ("Yes");
-        } else {
-            price = 10;
-            return ("No");
-        }
+    public Boolean cream(View view) {
+
+        CheckBox hasCream = (CheckBox) findViewById(R.id.whippedCream);
+        return (hasCream.isChecked());
     }
 
     public void minus(View view) {
