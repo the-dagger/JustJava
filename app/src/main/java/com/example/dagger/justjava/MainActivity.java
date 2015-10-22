@@ -1,5 +1,7 @@
 package com.example.dagger.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int noc = 0;
+    int noc = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-            @Override
+//            @Override
             public void onClick(View view) {
                 submit(view);
             }
@@ -35,7 +37,11 @@ public class MainActivity extends AppCompatActivity {
         CheckBox hasChocolate = (CheckBox) findViewById(R.id.chocolate);
         return (hasChocolate.isChecked());
     }
-
+//    public void contact (View view){
+//        Uri telNumber = Uri.parse("tel:01143601741");
+//        Intent call = new Intent(Intent.ACTION_DIAL,telNumber);
+//        startActivity(call);
+//    }
     public void submit(View view) {
         CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate);
         Boolean hasChocolate = chocolate.isChecked();
@@ -43,8 +49,11 @@ public class MainActivity extends AppCompatActivity {
         Boolean hasCream = cream.isChecked();
         EditText name = (EditText) findViewById(R.id.name);
         String strname = name.getText().toString();
-        displaySummary("Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(hasCream, hasChocolate) + "\nWhipped Cream : " + hasCream + "\nChocolate Topping : " + hasChocolate + "\nThank You!");
-    }
+        if (strname.equals("")) {
+            Toast.makeText(MainActivity.this, "Enter a name!", Toast.LENGTH_SHORT).show();}
+            else
+            displaySummary("Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(hasCream, hasChocolate) + "\nWhipped Cream : " + hasCream + "\nChocolate Topping : " + hasChocolate + "\nThank You!");
+        }
 
     public int calcPrice(boolean hasCream, boolean hasChocolate) {
 
@@ -104,9 +113,23 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Uri telNumber = Uri.parse("tel:01143601741");
+            Intent call = new Intent(Intent.ACTION_DIAL,telNumber);
+            startActivity(call);
         }
-
+        if (id == R.id.reach_us){
+            Uri webPage = Uri.parse("http://the-dagger.github.io/");
+            Intent web = new Intent(Intent.ACTION_VIEW, webPage);
+            startActivity(web);
+        }
+        if(id == R.id.gPlay) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("market://details?id=com.example.android"));
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else
+                Toast.makeText(MainActivity.this, "Install Google Play", Toast.LENGTH_SHORT).show();
+        }
         return super.onOptionsItemSelected(item);
     }
 }
