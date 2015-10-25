@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
             public void onClick(View view) {
-                submit(view);
+                submitOrder(view);
             }
         });
     }
@@ -37,23 +37,40 @@ public class MainActivity extends AppCompatActivity {
         CheckBox hasChocolate = (CheckBox) findViewById(R.id.chocolate);
         return (hasChocolate.isChecked());
     }
-//    public void contact (View view){
-//        Uri telNumber = Uri.parse("tel:01143601741");
-//        Intent call = new Intent(Intent.ACTION_DIAL,telNumber);
-//        startActivity(call);
+
+//    public void submitOrder(View view){
+//        Uri emailuri = Uri.parse("mailto:");
+//        Intent intent = new Intent(Intent.ACTION_SENDTO, emailuri);
+//        intent.putExtra(Intent.EXTRA_SUBJECT,"Just Java Order for " + strname );
+//        intent.putExtra(Intent.EXTRA_TEXT, submit(view));
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
+//
 //    }
-    public void submit(View view) {
+    public void submitOrder(View view) {
+
         CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate);
         Boolean hasChocolate = chocolate.isChecked();
-        CheckBox cream = (CheckBox) findViewById(R.id.whippedCream);
-        Boolean hasCream = cream.isChecked();
         EditText name = (EditText) findViewById(R.id.name);
         String strname = name.getText().toString();
+        CheckBox cream = (CheckBox) findViewById(R.id.whippedCream);
+        Boolean hasCream = cream.isChecked();
+        String message = "Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(hasCream, hasChocolate) + "\nWhipped Cream : " + hasCream + "\nChocolate Topping : " + hasChocolate + "\nThank You!";
         if (strname.equals("")) {
-            Toast.makeText(MainActivity.this, "Enter a name!", Toast.LENGTH_SHORT).show();}
-            else
-            displaySummary("Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(hasCream, hasChocolate) + "\nWhipped Cream : " + hasCream + "\nChocolate Topping : " + hasChocolate + "\nThank You!");
+            Toast.makeText(MainActivity.this, "Enter a name!", Toast.LENGTH_SHORT).show();
         }
+        displaySummary(message);
+        Uri emailuri = Uri.parse("mailto:");
+        Intent intent = new Intent(Intent.ACTION_SENDTO, emailuri);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java Order for " + strname);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+        else
+            Toast.makeText(MainActivity.this,"No E-Mail app installed",Toast.LENGTH_SHORT).show();
+    }
 
     public int calcPrice(boolean hasCream, boolean hasChocolate) {
 
