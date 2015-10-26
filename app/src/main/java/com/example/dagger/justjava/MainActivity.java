@@ -33,10 +33,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public Boolean chocolate(View view) {
-        CheckBox hasChocolate = (CheckBox) findViewById(R.id.chocolate);
-        return (hasChocolate.isChecked());
-    }
+
 
 //    public void submitOrder(View view){
 //        Uri emailuri = Uri.parse("mailto:");
@@ -56,22 +53,21 @@ public class MainActivity extends AppCompatActivity {
         String strname = name.getText().toString();
         CheckBox cream = (CheckBox) findViewById(R.id.whippedCream);
         Boolean hasCream = cream.isChecked();
-        String message = "Name : " + strname + "\nQuantity : " + noc + "\nTotal Price : $" + calcPrice(hasCream, hasChocolate) + "\nWhipped Cream : " + hasCream + "\nChocolate Topping : " + hasChocolate + "\nThank You!";
+        String message = getString(R.string.name) + " :" + strname + "\n" + getString(R.string.quantityOrder) + noc + "\n" + getString(R.string.price) + calcPrice(hasCream, hasChocolate) + "\n" + getString(R.string.whippedCream) + " : " + hasCream + "\n" + getString(R.string.chocolate) + " : " + hasChocolate + "\n" + getString(R.string.greeting);
         if (strname.equals("")) {
-            Toast.makeText(MainActivity.this, "Enter a name!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, getString(R.string.noName), Toast.LENGTH_SHORT).show();
+        } else {
+            displaySummary(message);
+            Uri emailuri = Uri.parse("mailto:");
+            Intent intent = new Intent(Intent.ACTION_SENDTO, emailuri);
+            intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order) + "" + strname);
+            intent.putExtra(Intent.EXTRA_TEXT, message);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else
+                Toast.makeText(MainActivity.this, getString(R.string.noEmail), Toast.LENGTH_SHORT).show();
         }
-        displaySummary(message);
-        Uri emailuri = Uri.parse("mailto:");
-        Intent intent = new Intent(Intent.ACTION_SENDTO, emailuri);
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java Order for " + strname);
-        intent.putExtra(Intent.EXTRA_TEXT, message);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-        else
-            Toast.makeText(MainActivity.this,"No E-Mail app installed",Toast.LENGTH_SHORT).show();
     }
-
     public int calcPrice(boolean hasCream, boolean hasChocolate) {
 
         int price = 5;
@@ -94,11 +90,16 @@ public class MainActivity extends AppCompatActivity {
         return (hasCream.isChecked());
     }
 
+    public Boolean chocolate(View view) {
+        CheckBox hasChocolate = (CheckBox) findViewById(R.id.chocolate);
+        return (hasChocolate.isChecked());
+    }
+
     public void minus(View view) {
         if (noc > 1)
             noc--;
         else {
-            Toast.makeText(MainActivity.this, "You can't order less than 1 coffee!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, getString(R.string.noOrder), Toast.LENGTH_SHORT).show();
             noc = 1;
         }
         display(noc);
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
             if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivity(intent);
             } else
-                Toast.makeText(MainActivity.this, "Install Google Play", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, getString(R.string.noGplay), Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
