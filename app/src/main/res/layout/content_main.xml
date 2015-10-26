@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:maxLines="1"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:hint="@string/name"
         android:id="@+id/name"
         android:layout_marginBottom="16dp"
         android:textSize="16sp"
@@ -27,7 +27,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Toppings"
+        android:text="@string/topping"
         android:textColor="#000000"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
@@ -38,7 +38,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Whipped Cream"
+        android:text="@string/whippedCream"
         android:textSize="16sp"
         android:paddingLeft="16dp"
         android:textColor="#000000"
@@ -48,7 +48,7 @@
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chocolate"
+        android:text="@string/chocolate"
         android:id="@+id/chocolate"
         android:onClick="chocolate"
         android:textSize="16sp"
@@ -101,7 +101,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Summary"
+        android:text="@string/summary"
         android:padding="8dp"
         android:textColor="#000000"
         android:textSize="16sp" />

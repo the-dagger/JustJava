@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">JustJava</string>
     <string name="action_settings">Contact Us</string>
+    <string name="name">Name</string>
+    <string name="topping">Toppings</string>
+    <string name="whippedCream">Whipped Cream</string>
+    <string name="chocolate">Chocolate</string>string>
+    <string name="quantity">Quantity</string>
+    <string name="summary">Summary</string>
+    <string name="noName">Enter a name!</string>
+    <string name="order">Just Java Order for</string>
+    <string name="quantityOrder">Quantity : </string>
+    <string name="price">Total Price : $</string>
+    <string name="greeting">Thank You!</string>
+    <string name="noEmail">No E-Mail app installed</string>
+    <string name="noOrder">"You can't order less than 1 coffee!"</string>
+    <string name="noGplay">Install Google Play</string>
 </resources>
