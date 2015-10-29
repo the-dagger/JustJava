@@ -80,7 +80,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginRight="8dp"
-            android:text="1"
             android:layout_marginTop="8dp"
             android:textSize="16sp" />
 
@@ -94,6 +93,15 @@
             android:onClick="plus"
             android:text="+" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restart"
+        android:id="@+id/button"
+        android:onClick="restart"
+        android:layout_margin="8dp" />
+
     <TextView
         android:text="@string/summary"
         android:padding="8dp"
