@@ -9,48 +9,51 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     int noc = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        TextView noc1 = (TextView) findViewById(R.id.numberOfCoffee);
+        noc1.setText(noc+"");
+        Button plus = (Button) findViewById(R.id.plus);
+        Button minus = (Button) findViewById(R.id.minus);
+        plus.setOnClickListener(MainActivity.this);
+        minus.setOnClickListener(this);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
+            //            @Override
             public void onClick(View view) {
                 submitOrder(view);
             }
         });
     }
 
-
-
-//    public void submitOrder(View view){
-//        Uri emailuri = Uri.parse("mailto:");
-//        Intent intent = new Intent(Intent.ACTION_SENDTO, emailuri);
-//        intent.putExtra(Intent.EXTRA_SUBJECT,"Just Java Order for " + strname );
-//        intent.putExtra(Intent.EXTRA_TEXT, submit(view));
-//        if (intent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(intent);
-//        }
-//
-//    }
-    public void submitOrder(View view) {
-
-        CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate);
-        Boolean hasChocolate = chocolate.isChecked();
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
         EditText name = (EditText) findViewById(R.id.name);
         String strname = name.getText().toString();
+        super.onSaveInstanceState(outState);
+        outState.putInt("noc", noc);
+        //outState.putString("Name", strname);
+    }
+
+
+
+    public void submitOrder(View view) {
+        EditText name = (EditText) findViewById(R.id.name);
+        String strname = name.getText().toString();
+        CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate);
+        Boolean hasChocolate = chocolate.isChecked();
         CheckBox cream = (CheckBox) findViewById(R.id.whippedCream);
         Boolean hasCream = cream.isChecked();
         String message = getString(R.string.name) + " :" + strname + "\n" + getString(R.string.quantityOrder) + noc + "\n" + getString(R.string.price) + calcPrice(hasCream, hasChocolate) + "\n" + getString(R.string.whippedCream) + " : " + hasCream + "\n" + getString(R.string.chocolate) + " : " + hasChocolate + "\n" + getString(R.string.greeting);
@@ -67,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
             } else
                 Toast.makeText(MainActivity.this, getString(R.string.noEmail), Toast.LENGTH_SHORT).show();
         }
+
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        EditText name = (EditText) findViewById(R.id.name);
+        String strname = name.getText().toString();
+        super.onRestoreInstanceState(savedInstanceState);
+        noc = savedInstanceState.getInt("noc");
+        //strname = savedInstanceState.getString("Name");
     }
     public int calcPrice(boolean hasCream, boolean hasChocolate) {
 
@@ -79,10 +91,6 @@ public class MainActivity extends AppCompatActivity {
         return price * noc;
     }
 
-    public void plus(View view) {
-        noc++;
-        display(noc);
-    }
 
     public Boolean cream(View view) {
 
@@ -93,16 +101,6 @@ public class MainActivity extends AppCompatActivity {
     public Boolean chocolate(View view) {
         CheckBox hasChocolate = (CheckBox) findViewById(R.id.chocolate);
         return (hasChocolate.isChecked());
-    }
-
-    public void minus(View view) {
-        if (noc > 1)
-            noc--;
-        else {
-            Toast.makeText(MainActivity.this, getString(R.string.noOrder), Toast.LENGTH_SHORT).show();
-            noc = 1;
-        }
-        display(noc);
     }
 
     private void display(int var) {
@@ -150,4 +148,29 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.plus)
+        {
+            noc++;
+            display(noc);
+        }
+        else if (v.getId() == R.id.minus)
+        {
+            if (noc > 1)
+               noc--;
+        else {
+            Toast.makeText(MainActivity.this, getString(R.string.noOrder), Toast.LENGTH_SHORT).show();
+            noc = 1;
+        }
+        display(noc);
+        }
+    }
+
+ public void restart(View v){
+     Intent i = new Intent(this,MainActivity.class);
+     startActivity(i);
+ }
+
 }
