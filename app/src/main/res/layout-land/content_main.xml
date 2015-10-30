@@ -19,26 +19,24 @@
             android:layout_width="match_parent"
             android:maxLines="1"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/name"
             android:id="@+id/name"
             android:layout_marginBottom="16dp"
             android:textSize="16sp"
             android:inputType="textPersonName"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Toppings"
+            android:text="@string/topping"
             android:textColor="#000000"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:paddingTop = "8dp"
-            android:layout_marginBottom="16dp"
-            android:textSize="16sp"/>
+            style="@style/header"
+            android:layout_marginBottom="16dp" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Whipped Cream"
+            android:text="@string/whippedCream"
             android:textSize="16sp"
             android:paddingLeft="16dp"
             android:textColor="#000000"
@@ -48,20 +46,18 @@
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chocolate"
+            android:text="@string/chocolate"
             android:id="@+id/chocolate"
             android:onClick="chocolate"
             android:textSize="16sp"
             android:paddingLeft="16dp"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Quantity"
             android:padding="8dp"
             android:textColor="#000000"
             android:id="@+id/quantity"
-            android:textSize="16sp" />
+            style="@style/header" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -98,13 +94,27 @@
                 android:text="+" />
         </LinearLayout>
 
-        <TextView
+        <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="New Button"-->
+        <!--android:id="@+id/button2"-->
+        <!--android:layout_margin="8dp"-->
+        <!--android:onClick="newLayout"/>-->
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Summary"
+            android:text="Restart"
+            android:id="@+id/button"
+            android:onClick="restart"
+            android:layout_margin="8dp" />
+
+        <TextView
+            android:text="@string/summary"
             android:padding="8dp"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            style="@style/header" />
 
         <TextView
             android:id="@+id/orderSummary"
