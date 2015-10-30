@@ -67,12 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String message = getString(R.string.name) + " :" + strname + "\n" + getString(R.string.quantityOrder) + noc + "\n" + getString(R.string.price) + calcPrice(hasCream, hasChocolate) + "\n" + getString(R.string.whippedCream) + " : " + hasCream + "\n" + getString(R.string.chocolate) + " : " + hasChocolate + "\n" + getString(R.string.greeting);
         if (strname.equals("")) {
             Toast.makeText(MainActivity.this, getString(R.string.noName), Toast.LENGTH_SHORT).show();
-//            Toast toast = new Toast(this);
-//            toast.setDuration(Toast.LENGTH_SHORT);
-//            LayoutInflater lin = getLayoutInflater();
-//            View toastobj = lin.inflate(R.layout.toast_layout,(ViewGroup)findViewById(R.id.toastLinearLayout));
-//            toast.setView(toastobj);
-//            toast.show();
         } else {
             displaySummary(message);
             Uri emailuri = Uri.parse("mailto:");
@@ -126,25 +120,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView summary = (TextView) findViewById(R.id.orderSummary);
         summary.setText(var);
     }
-//    public void newLayout(View v){
-//        LinearLayout l;
-//        TextView t;
-//        Button b;
-//        l = new LinearLayout(this);
-//        t = new TextView(this);
-//        b = new Button(this);
-//        ViewGroup.LayoutParams dimension = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-//        t.setText("HELLO");
-//        b.setText("Button");
-//        l.setOrientation(LinearLayout.VERTICAL);
-//        l.setLayoutParams(dimension);
-//        ViewGroup.LayoutParams dimension2 = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//        t.setLayoutParams(dimension2);
-//        b.setLayoutParams(dimension2);
-//        l.addView(t);
-//        l.addView(b);
-//        setContentView(l);
-//    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
