@@ -11,20 +11,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener {
     int noc = 1;
+    ToggleButton toggle;
+    Button restart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        restart = (Button) findViewById(R.id.button);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         TextView noc1 = (TextView) findViewById(R.id.numberOfCoffee);
+        toggle= (ToggleButton) findViewById(R.id.toggle);
         noc1.setText(noc+"");
+        toggle.setOnCheckedChangeListener(this);
         Button plus = (Button) findViewById(R.id.plus);
         Button minus = (Button) findViewById(R.id.minus);
         plus.setOnClickListener(MainActivity.this);
@@ -37,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -197,4 +205,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      startActivity(i);
  }
 
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if(isChecked)
+        {
+            restart.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            restart.setVisibility(View.GONE);
+        }
+    }
 }
