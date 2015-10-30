@@ -15,6 +15,12 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".MainActivity"
         tools:showIn="@layout/activity_main">
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="Noob"
+            android:textOn="Developer"
+            android:id="@+id/toggle"/>
         <EditText
             android:layout_width="match_parent"
             android:maxLines="1"
@@ -68,7 +74,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
+
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
                 android:onClick="minus"
@@ -108,7 +114,8 @@
             android:text="Restart"
             android:id="@+id/button"
             android:onClick="restart"
-            android:layout_margin="8dp" />
+            android:visibility="gone"
+            />
 
         <TextView
             android:text="@string/summary"
